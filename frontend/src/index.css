@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-cloud text-ink font-body;
+  }
+  h1, h2, h3 {
+    @apply font-display text-ink;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.sage.dark");
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white/70 backdrop-blur-sm border border-black/5 rounded-xl2 shadow-card;
+  }
+  .btn-primary {
+    @apply bg-sage text-white font-medium px-5 py-2.5 rounded-full shadow-card hover:bg-sage-dark transition-colors duration-200;
+  }
+  .btn-secondary {
+    @apply bg-white text-ink font-medium px-5 py-2.5 rounded-full border border-black/10 hover:bg-cloudDim transition-colors duration-200;
+  }
+  .input {
+    @apply w-full px-4 py-2.5 rounded-xl border border-black/10 bg-white focus:border-sage focus:ring-1 focus:ring-sage outline-none transition-colors;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
